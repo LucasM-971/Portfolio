@@ -197,11 +197,49 @@
                             </a>
                         </div>
                     </div>
+
+                
                     
                     <div class="project-preview" x-show="showPreview" x-transition>
                         <iframe src="https://barber-shop-project-lilac.vercel.app" 
                                 frameborder="0" 
                                 title="Preview Barber Shop">
+                        </iframe>
+                        <div class="preview-overlay">
+                            <span>Preview - Cliquez pour interagir</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                           <div class="project-card" x-data="{ showPreview: false }">
+                    <div class="project-info">
+                        <div class="project-badge">To Do List</div>
+                        <h3>📝 To Do List - Application Web</h3>
+                        <p>Application web de gestion de tâches avec fonctionnalités d'ajout, de suppression et de modification.</p>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Alpine.js</span>
+                        </div>
+                        
+                        <div class="project-actions">
+                            <button @click="showPreview = !showPreview" class="preview-btn">
+                                <span x-text="showPreview ? '👁️ Masquer' : '👀 Preview'"></span>
+                            </button>
+                            <a href="https://to-do-list-puce-three-29.vercel.app" target="_blank" class="live-btn">
+                                🔗 Voir le site
+                            </a>
+                        </div>
+                    </div>
+
+                
+                    
+                    <div class="project-preview" x-show="showPreview" x-transition>
+                        <iframe src="https://to-do-list-puce-three-29.vercel.app" 
+                                frameborder="0" 
+                                title="Preview To Do List">
                         </iframe>
                         <div class="preview-overlay">
                             <span>Preview - Cliquez pour interagir</span>
