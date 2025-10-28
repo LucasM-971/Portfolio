@@ -492,6 +492,11 @@ footer nav ul {
     padding: 22px 0;
 }
 
+footer nav ul li {
+    position: relative;
+    display: inline-block;
+}
+
 footer nav ul img {
     width: 60px;
     height: auto;
@@ -502,6 +507,42 @@ footer nav ul img {
 footer nav ul img:hover {
     transform: scale(1.2);
     cursor: pointer;
+}
+
+/* Tooltips au-dessus des icônes */
+.hover-text {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(22, 22, 22, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hover-text::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(22, 22, 22, 0.9);
+}
+
+footer nav ul li:hover .hover-text {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
 }
 
 footer nav a {
