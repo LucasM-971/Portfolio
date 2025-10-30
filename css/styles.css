@@ -103,7 +103,6 @@ header nav a:hover {
     max-height: 85%;
     overflow-y: auto;
     z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
@@ -412,7 +411,6 @@ header nav a:hover {
     max-height: 80%;
     overflow-y: auto;
     z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .project[x-cloak] {
