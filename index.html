@@ -316,6 +316,64 @@
     </main>
 </body>
 <script>
+let dragging = null;
+let offset = { x: 0, y: 0 };
 
+function makeDraggable() {
+    const experience = document.querySelector('.experience');
+    const project = document.querySelector('.project');
+    
+    if (experience && !experience.hasAttribute('data-draggable')) {
+        experience.setAttribute('data-draggable', 'true');
+        experience.addEventListener('mousedown', startDrag);
+    }
+    
+    if (project && !project.hasAttribute('data-draggable')) {
+        project.setAttribute('data-draggable', 'true');
+        project.addEventListener('mousedown', startDrag);
+    }
+}
+
+function startDrag(e) {
+    // Ignorer si on clique sur les boutons/liens
+    if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || 
+        e.target.classList.contains('close-nav') || e.target.id === 'close-nav' ||
+        e.target.closest('button') || e.target.closest('a') || 
+        e.target.closest('.close-nav') || e.target.closest('#close-nav')) {
+        return;
+    }
+    
+    dragging = this;
+    const rect = dragging.getBoundingClientRect();
+    offset.x = e.clientX - rect.left;
+    offset.y = e.clientY - rect.top;
+    
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', stopDrag);
+    e.preventDefault();
+}
+
+function drag(e) {
+    if (!dragging) return;
+    
+    const x = e.clientX - offset.x;
+    const y = e.clientY - offset.y;
+    
+    dragging.style.left = x + 'px';
+    dragging.style.top = y + 'px';
+    dragging.style.transform = 'none';
+}
+
+function stopDrag() {
+    dragging = null;
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('mouseup', stopDrag);
+}
+
+// Initialiser quand la page est chargée
+document.addEventListener('DOMContentLoaded', makeDraggable);
+
+// Réinitialiser quand les sections apparaissent
+setInterval(makeDraggable, 1000);
 </script>
 </html>
