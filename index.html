@@ -212,24 +212,43 @@
                 </div>
             </div>
 
+            <div class="project-card" x-data="{ showPreview: false }">
+                <div class="project-info">
+                    <div class="project-badge">Site du cours 3d</div>
+                    <h3>🌍 Reporduction de notre système solaire.</h3>
+                    <p>En cours de développement</p>
 
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <button @click="showPreview = !showPreview" class="preview-btn">
+                            <span x-text="showPreview ? '👁️ Masquer' : '👀 Preview'"></span>
+                        </button>
+                        <a href="https://solar-system-c38q.vercel.app" target="_blank" class="live-btn">
+                            🔗 Voir le site
+                        </a>
+                    </div>
+                </div>
+
+
+
+                <div class="project-preview" x-show="showPreview" x-transition>
+                    <iframe src="https://solar-system-c38q.vercel.app" frameborder="0" title="Preview Solar System">
+                    </iframe>
+                    <div class="preview-overlay">
+                        <span>Preview - Cliquez pour interagir</span>
+                    </div>
+                </div>
+            </div>
+            </div>
             
 
 
-            <div class="project-stats">
-                <div class="stat-item">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Projets Complétés</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Responsive</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">Technologies</div>
-                </div>
-            </div>
+
         </section>
 
         <section class="contact" x-show="showContact" 
