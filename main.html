@@ -9,7 +9,7 @@
     <title>Portfolio</title>
 </head>
 <body x-data="{ showExperience: true, showProject: false, showContact: false }">
-    <img class="background-img" src="/assets/fond.jpg" draggable="false" alt="">
+    <img class="background-img" src="assets/fond.jpg" draggable="false" alt="">
 
 
     <main>
@@ -62,35 +62,35 @@
                 <h3><span class="icon">💻</span>Technologies Maîtrisées</h3>
                 <div class="skills-grid">
                     <div class="skill-item">
-                        <img src="/assets/html.png" draggable="false" alt="HTML">
+                        <img src="assets/html.png" draggable="false" alt="HTML">
                         <span>HTML</span>
                         <div class="skill-level">
                             <div class="skill-bar" data-level="90"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <img src="/assets/css-icon.png" draggable="false" alt="CSS">
+                        <img src="assets/css-icon.png" draggable="false" alt="CSS">
                         <span>CSS</span>
                         <div class="skill-level">
                             <div class="skill-bar" data-level="85"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <img src="/assets/Js-icon.png" draggable="false" alt="JavaScript">
+                        <img src="assets/Js-icon.png" draggable="false" alt="JavaScript">
                         <span>JavaScript</span>
                         <div class="skill-level">
                             <div class="skill-bar" data-level="75"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <img src="/assets/python_18894.png"  draggable="false" alt="Python">
+                        <img src="assets/python_18894.png"  draggable="false" alt="Python">
                         <span>Python</span>
                         <div class="skill-level">
                             <div class="skill-bar" data-level="80"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <img src="/assets/sql-icon.png" draggable="false" alt="SQL">
+                        <img src="assets/sql-icon.png" draggable="false" alt="SQL">
                         <span>SQL</span>
                         <div class="skill-level">
                             <div class="skill-bar" data-level="70"></div>
@@ -103,7 +103,7 @@
                 <h3><span class="icon">🔗</span>Me Contacter</h3>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/lucas-mosimann-5b4b6923b/" target="_blank" class="social-link linkedin">
-                        <img src="/assets/linkedin_icon-icons.com_65929.png" draggable="false" alt="LinkedIn">
+                        <img src="assets/linkedin_icon-icons.com_65929.png" draggable="false" alt="LinkedIn">
                         <span>LinkedIn</span>
                     </a>
                 </div>
@@ -203,9 +203,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="project-card" x-data="{ showPreview: false }">
+                <div class="project-card" x-data="{ showPreview: false }">
                 <div class="project-info">
                     <div class="project-badge">Site du cours 3d</div>
                     <h3>🌍 Reporduction de notre système solaire.</h3>
@@ -272,21 +270,21 @@
             <nav class ="menu-footer">
                 <ul>
                     <li>
-                        <img src="/assets/finder_macos_bigsur_icon_190173.png" draggable="false" alt="Logo" @click="showExperience = !showExperience">
+                        <img src="assets/finder_macos_bigsur_icon_190173.png" draggable="false" alt="Logo" @click="showExperience = !showExperience">
                         <span class="hover-text">Expérience</span>
                     </li>
                     <li>
-                        <img src="/assets/Safari_31104.png" alt="Logo" draggable="false" @click="showProject = !showProject">
+                        <img src="assets/Safari_31104.png" alt="Logo" draggable="false" @click="showProject = !showProject">
                         <span class="hover-text">Projets</span>
                     </li>
                     <li>
-                        <a href="/assets/CV_Lucas_MOSIMANN.pdf" target="_blank">
-                            <img src="/assets/macos_big_sur_download_folder_icon_186042.png" draggable="false" alt="Logo">
+                        <a href="assets/CV_Lucas_MOSIMANN.pdf" target="_blank">
+                            <img src="assets/macos_big_sur_download_folder_icon_186042.png" draggable="false" alt="Logo">
                         </a>
                         <span class="hover-text">CV PDF</span>
                     </li>
                     <li>
-                        <img src="/assets/notes_macos_bigsur_icon_189901.png" alt="Logo" draggable="false" @click="showContact = !showContact">
+                        <img src="assets/notes_macos_bigsur_icon_189901.png" alt="Logo" draggable="false" @click="showContact = !showContact">
                         <span class="hover-text">Contact</span>
                     </li>
                 </ul>
@@ -297,23 +295,28 @@
 <script>
 let dragging = null;
 let offset = { x: 0, y: 0 };
+const canDragWindows = window.matchMedia('(pointer: fine)').matches;
 
 function makeDraggable() {
+    if (!canDragWindows) return;
+
     const experience = document.querySelector('.experience');
     const project = document.querySelector('.project');
     
     if (experience && !experience.hasAttribute('data-draggable')) {
         experience.setAttribute('data-draggable', 'true');
-        experience.addEventListener('mousedown', startDrag);
+        experience.addEventListener('pointerdown', startDrag);
     }
     
     if (project && !project.hasAttribute('data-draggable')) {
         project.setAttribute('data-draggable', 'true');
-        project.addEventListener('mousedown', startDrag);
+        project.addEventListener('pointerdown', startDrag);
     }
 }
 
 function startDrag(e) {
+    if (!canDragWindows || (e.pointerType && e.pointerType !== 'mouse')) return;
+
     // Ignorer si on clique sur les boutons/liens
     if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || 
         e.target.classList.contains('close-nav') || e.target.id === 'close-nav' ||
@@ -327,8 +330,8 @@ function startDrag(e) {
     offset.x = e.clientX - rect.left;
     offset.y = e.clientY - rect.top;
     
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('mouseup', stopDrag);
+    document.addEventListener('pointermove', drag);
+    document.addEventListener('pointerup', stopDrag);
     e.preventDefault();
 }
 
@@ -345,8 +348,8 @@ function drag(e) {
 
 function stopDrag() {
     dragging = null;
-    document.removeEventListener('mousemove', drag);
-    document.removeEventListener('mouseup', stopDrag);
+    document.removeEventListener('pointermove', drag);
+    document.removeEventListener('pointerup', stopDrag);
 }
 
 // Initialiser quand la page est chargée
