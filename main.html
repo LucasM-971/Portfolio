@@ -9,7 +9,16 @@
     <title>Portfolio</title>
 </head>
 <body x-data="{ showExperience: true, showProject: false, showContact: false }">
-    <img class="background-img" src="assets/fond.jpg" draggable="false" alt="">
+    <img
+        class="background-img"
+        src="assets/fond-1920.jpg"
+        srcset="assets/fond-1080.jpg 1080w, assets/fond-1920.jpg 1920w, assets/fond.jpg 6000w"
+        sizes="100vw"
+        draggable="false"
+        alt=""
+        decoding="async"
+        fetchpriority="high"
+    >
 
 
     <main>

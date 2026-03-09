@@ -7,7 +7,16 @@
     <title>Accueil</title>
 </head>
 <body>
-    <img class="background-img" src="assets/fond.jpg" draggable="false" alt="Background">
+    <img
+        class="background-img"
+        src="assets/fond-1920.jpg"
+        srcset="assets/fond-1080.jpg 1080w, assets/fond-1920.jpg 1920w, assets/fond.jpg 6000w"
+        sizes="100vw"
+        draggable="false"
+        alt="Background"
+        decoding="async"
+        fetchpriority="high"
+    >
     <div class="lockscreen-container">
         <div class="profile-section">
             <img src="assets/pfp.jpg" alt="Photo de profil" class="profile-img">
@@ -17,8 +26,7 @@
         </div>
         <button class="access-btn" onclick="window.location.href='main.html'">Accéder</button>
     </div>
-        <!-- Préchargement de la page index.html -->
-        <iframe src="main.html" style="display:none; width:0; height:0; border:0;" id="preload-index"></iframe>
+
     <script>
     // Animation automatique de points dans l'input
     const input = document.querySelector('.lockscreen-input');
