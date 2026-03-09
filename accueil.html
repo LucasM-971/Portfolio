@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <img class="background-img" src="assets/fond.jpg" draggable="false" alt="Background">
+    <div class="lockscreen-container">
+        <div class="profile-section">
+            <img src="assets/pfp.jpg" alt="Photo de profil" class="profile-img">
+        </div>
+        <div class="input-section">
+            <input type="password" class="lockscreen-input" readonly>
+        </div>
+        <button class="access-btn" onclick="window.location.href='index.html'">Accéder</button>
+    </div>
+        <!-- Préchargement de la page index.html -->
+        <iframe src="index.html" style="display:none; width:0; height:0; border:0;" id="preload-index"></iframe>
+    <script>
+    // Animation automatique de points dans l'input
+    const input = document.querySelector('.lockscreen-input');
+    const totalDots = 6;
+    let current = 0;
+    function animateInputDots() {
+        if (current < totalDots) {
+            input.value += '•';
+            current++;
+            setTimeout(animateInputDots, 350);
+        }
+    }
+    animateInputDots();
+    </script>
+</body>
+</html>
