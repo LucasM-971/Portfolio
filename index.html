@@ -9,16 +9,6 @@
     <title>Portfolio</title>
 </head>
 <body x-data="{ showLockscreen: true, showExperience: true, showProject: false, showContact: false }">
-    <img
-        class="background-img"
-        src="assets/fond-1920.jpg"
-        srcset="assets/fond-1080.jpg 1080w, assets/fond-1920.jpg 1920w, assets/fond.jpg 6000w"
-        sizes="100vw"
-        draggable="false"
-        alt=""
-        decoding="async"
-        fetchpriority="high"
-    >
 
     <!-- Lockscreen -->
     <div class="lockscreen-container" 
@@ -173,22 +163,9 @@
                         </div>
                         
                         <div class="project-actions">
-                            <button @click="showPreview = !showPreview" class="preview-btn">
-                                <span x-text="showPreview ? '👁️ Masquer' : '👀 Preview'"></span>
-                            </button>
-                            <a href="https://bugatti-site-vitrine.vercel.app" target="_blank" class="live-btn">
+                            <a href="https://bugatti-site-vitrine.vercel.app" target="_blank" class="live-btn" style="width: 100%;">
                                 🔗 Voir le site
                             </a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-preview" x-show="showPreview" x-transition>
-                        <iframe src="https://bugatti-site-vitrine.vercel.app" 
-                                frameborder="0" 
-                                title="Preview Bugatti Site">
-                        </iframe>
-                        <div class="preview-overlay">
-                            <span>Preview - Cliquez pour interagir</span>
                         </div>
                     </div>
                 </div>
@@ -208,24 +185,9 @@
                         </div>
                         
                         <div class="project-actions">
-                            <button @click="showPreview = !showPreview" class="preview-btn">
-                                <span x-text="showPreview ? '👁️ Masquer' : '👀 Preview'"></span>
-                            </button>
-                            <a href="https://barber-shop-project-lilac.vercel.app" target="_blank" class="live-btn">
+                            <a href="https://barber-shop-project-lilac.vercel.app" target="_blank" class="live-btn" style="width: 100%;">
                                 🔗 Voir le site
                             </a>
-                        </div>
-                    </div>
-
-                
-                    
-                    <div class="project-preview" x-show="showPreview" x-transition>
-                        <iframe src="https://barber-shop-project-lilac.vercel.app" 
-                                frameborder="0" 
-                                title="Preview Barber Shop">
-                        </iframe>
-                        <div class="preview-overlay">
-                            <span>Preview - Cliquez pour interagir</span>
                         </div>
                     </div>
                 </div>
@@ -242,22 +204,9 @@
                     </div>
 
                     <div class="project-actions">
-                        <button @click="showPreview = !showPreview" class="preview-btn">
-                            <span x-text="showPreview ? '👁️ Masquer' : '👀 Preview'"></span>
-                        </button>
-                        <a href="https://solar-system-c38q.vercel.app" target="_blank" class="live-btn">
+                        <a href="https://solar-system-c38q.vercel.app" target="_blank" class="live-btn" style="width: 100%;">
                             🔗 Voir le site
                         </a>
-                    </div>
-                </div>
-
-
-
-                <div class="project-preview" x-show="showPreview" x-transition>
-                    <iframe src="https://solar-system-c38q.vercel.app" frameborder="0" title="Preview Solar System">
-                    </iframe>
-                    <div class="preview-overlay">
-                        <span>Preview - Cliquez pour interagir</span>
                     </div>
                 </div>
             </div>

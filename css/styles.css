@@ -97,6 +97,22 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+@media screen and (min-width: 769px) {
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../assets/fond-1920.jpg');
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    }
 }
 
 [x-cloak] { 
@@ -141,13 +157,7 @@ body {
 }
 
 .background-img {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    display: none;
 }
 
 header  {
