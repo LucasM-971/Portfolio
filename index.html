@@ -270,13 +270,14 @@
 <script>
 let dragging = null;
 let offset = { x: 0, y: 0 };
-const canDragWindows = window.matchMedia('(pointer: fine)').matches;
+const canDragWindows = true;
 
 function makeDraggable() {
     if (!canDragWindows) return;
 
     const experience = document.querySelector('.experience');
     const project = document.querySelector('.project');
+    const contact = document.querySelector('.contact');
     
     if (experience && !experience.hasAttribute('data-draggable')) {
         experience.setAttribute('data-draggable', 'true');
@@ -287,16 +288,24 @@ function makeDraggable() {
         project.setAttribute('data-draggable', 'true');
         project.addEventListener('pointerdown', startDrag);
     }
+
+    if (contact && !contact.hasAttribute('data-draggable')) {
+        contact.setAttribute('data-draggable', 'true');
+        contact.addEventListener('pointerdown', startDrag);
+    }
 }
 
 function startDrag(e) {
-    if (!canDragWindows || (e.pointerType && e.pointerType !== 'mouse')) return;
+    if (!canDragWindows) return;
 
     // Ignorer si on clique sur les boutons/liens
     if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || 
         e.target.classList.contains('close-nav') || e.target.id === 'close-nav' ||
         e.target.closest('button') || e.target.closest('a') || 
-        e.target.closest('.close-nav') || e.target.closest('#close-nav')) {
+        e.target.closest('.close-nav') || e.target.closest('#close-nav') ||
+        e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' ||
+        e.target.closest('input') || e.target.closest('textarea') ||
+        e.target.closest('form')) {
         return;
     }
     
