@@ -39,6 +39,7 @@
                  x-transition:leave="transition ease-in duration-200"
                  x-transition:leave-start="opacity-100 transform translate-y-0"
                  x-transition:leave-end="opacity-0 transform translate-y-full">
+            <div class="drag-handle">↕ Déplacer</div>
             <nav id="close-nav" @click="showExperience = false">✕ Fermer</nav>
             
 
@@ -137,6 +138,7 @@
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100 transform translate-y-0"
              x-transition:leave-end="opacity-0 transform translate-y-full">
+            <div class="drag-handle">↕ Déplacer</div>
             <nav class="close-nav" @click="showProject = false">✕ Fermer</nav>
             
 
@@ -224,6 +226,7 @@
                  x-transition:leave="transition ease-in duration-200"
                  x-transition:leave-start="opacity-100 transform translate-y-0"
                  x-transition:leave-end="opacity-0 transform translate-y-full">
+            <div class="drag-handle">↕ Déplacer</div>
             <form action="https://formspree.io/f/xpwozvkz" method="POST">
                 <label for="name">Nom:</label>
                 <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
@@ -297,6 +300,10 @@ function makeDraggable() {
 
 function startDrag(e) {
     if (!canDragWindows) return;
+
+    if (!e.target.closest('.drag-handle')) {
+        return;
+    }
 
     // Ignorer si on clique sur les boutons/liens
     if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || 

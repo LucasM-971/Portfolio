@@ -206,7 +206,7 @@ header nav a:hover {
     overflow-y: auto;
     z-index: 1000;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    touch-action: none;
+    touch-action: auto;
 }
 
 .experience[x-cloak] {
@@ -550,7 +550,7 @@ header nav a:hover {
     max-height: 80%;
     overflow-y: auto;
     z-index: 1000;
-    touch-action: none;
+    touch-action: auto;
 }
 
 .project[x-cloak] {
@@ -586,7 +586,26 @@ background-color: rgb(237, 237, 237);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-    touch-action: none;
+    touch-action: auto;
+}
+
+.drag-handle {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        user-select: none;
+        -webkit-user-select: none;
+        cursor: grab;
+        touch-action: none;
+        background: rgba(255, 255, 255, 0.18);
+        color: inherit;
+}
+
+.drag-handle:active {
+        cursor: grabbing;
 }
 
 footer {
