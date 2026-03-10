@@ -141,6 +141,7 @@
             <div class="drag-handle">↕ Déplacer</div>
             <nav class="close-nav" @click="showProject = false">✕ Fermer</nav>
             
+            
 
             <div class="projects-header">
                 <h2><span class="icon">🚀</span>Mes Projets</h2>
@@ -150,6 +151,47 @@
 
             <div class="projects-grid">
                 
+                <div class="project-card" x-data="{ showPreview: false }">
+                <div class="project-info">
+                    <div class="project-badge">Site du cours 3d</div>
+                    <h3>🌍 Reporduction de notre système solaire.</h3>
+                    <p>En cours de développement</p>
+
+                    <div class="tech-stack">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Three.js</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://solar-system-c38q.vercel.app" target="_blank" class="live-btn" style="width: 100%;">
+                            🔗 Voir le site
+                        </a>
+                    </div>
+                </div>    
+            </div>
+
+              <div class="project-card" x-data="{ showPreview: false }">
+                <div class="project-info">
+                    <div class="project-badge">Labyrinthe Backroom</div>
+                    <h3>Réalisation d'un labyrinthe en 3D</h3>
+                    <p>Projet de cours de 3d</p>
+
+                    <div class="tech-stack">
+                        <span class="tech-tag">Three.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://backroom-lemon.vercel.app" target="_blank" class="live-btn" style="width: 100%;">
+                            🔗 Voir le site
+                        </a>
+                    </div>
+                </div>
+              </div>
+
+
 
                 <div class="project-card" x-data="{ showPreview: false }">
                     <div class="project-info">
@@ -193,25 +235,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card" x-data="{ showPreview: false }">
-                <div class="project-info">
-                    <div class="project-badge">Site du cours 3d</div>
-                    <h3>🌍 Reporduction de notre système solaire.</h3>
-                    <p>En cours de développement</p>
-
-                    <div class="tech-stack">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
-                    </div>
-
-                    <div class="project-actions">
-                        <a href="https://solar-system-c38q.vercel.app" target="_blank" class="live-btn" style="width: 100%;">
-                            🔗 Voir le site
-                        </a>
-                    </div>
-                </div>
-            </div>
             </div>
             
 
